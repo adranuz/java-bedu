@@ -33,4 +33,23 @@ public class Llanta {
         this.diametro = diametro;
     }
 
+
+    public Llanta ( int ancho, int presion, int diametro) {
+        this.setAncho(ancho);
+        this.setPresion(presion);
+        this.setDiametro(diametro);
+    }
+    public Llanta (){}
+
+    @Override
+    public boolean equals(Object o) {
+        if(this == o) return true;
+        if(o == null || getClass() != o.getClass()) return false;
+
+        // casteo del objeto obtenido
+        Llanta llanta = (Llanta) o;
+        if(llanta.getAncho() != getAncho()) return false;
+        if(llanta.getDiametro() != getDiametro()) return false;
+        return llanta.getPresion() != getPresion();
+    }
 }

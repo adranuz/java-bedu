@@ -1,9 +1,21 @@
 package org.bedu.java.jse.basico.sesion3.reto2;
 
+import java.util.Arrays;
+
 public class Vehiculo {
-    // atributos que conforman un vehiculo
+    // attributes que conform un vehicular
     private Llanta[] llantas = new Llanta[4];
     private Combustible combustible = new Combustible();
+
+    // metodo para checar las llantas
+    public Llanta[] getLlantas() {
+        return llantas;
+    }
+
+    //metodo para checar el combustible
+    public Combustible getCombustible() {
+        return combustible;
+    }
 
     // metodo para establecer el maximo de combustible
     public void setCombustible(Combustible combustible) {
@@ -38,6 +50,23 @@ public class Vehiculo {
         } else {
             System.out.println("No hay combustible");
         }
+    }
+
+    public Vehiculo(Combustible combus){
+        this.setCombustible(combus);
+    }
+    public Vehiculo(){}
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Vehiculo vehiculo = (Vehiculo) o;
+
+        // Probably incorrect - comparing Object[] arrays with Arrays.equals
+        if (!Arrays.equals(getLlantas(), vehiculo.getLlantas())) return false;
+        return getCombustible().equals(vehiculo.getCombustible());
     }
 }
 

@@ -28,4 +28,20 @@ public class Combustible {
     public void setCurrLitros(int currLitros) {
         this.currLitros = currLitros;
     }
+    public Combustible (int max, int curr) {
+        this.setCurrLitros(curr);
+        this.setMaxLitros(max);
+    }
+    public Combustible () {}
+
+    @Override
+    public boolean equals(Object o){
+        if(this == o) return true;
+        if(o == null || getClass() != o.getClass()) return false;
+
+        Combustible that = (Combustible) o;
+
+        if (getMaxLitros() != that.getMaxLitros()) return false;
+        return getCurrLitros() == that.getCurrLitros();
+    }
 }
